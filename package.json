@@ -1,0 +1,14 @@
+{
+  "name": "mozzie",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "repository": "git@github.com:khanguslee/mozzie.git",
+  "author": "khanguslee <khanguslee@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^7.1.8"
+  },
+  "scripts": {
+    "start": "electron src/main.js"
+  }
+}
