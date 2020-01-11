@@ -6,9 +6,23 @@
   "author": "khanguslee <khanguslee@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^7.1.8"
+    "electron": "^7.1.8",
+    "husky": ">=1",
+    "lint-staged": ">=8",
+    "prettier": "1.19.1"
   },
   "scripts": {
     "start": "electron src/main.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
