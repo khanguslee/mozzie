@@ -1,16 +1,14 @@
-import * as React from 'react';
+import React, { FunctionComponent } from 'react';
 import * as ReactDOM from 'react-dom';
+
+import Login from '../view/Login';
 
 import './App.less';
 
-const App = () => {
+const App: FunctionComponent = () => {
   return (
     <div>
-      <h1>mozzie</h1>
-      <div>
-        Host: <input type="text" />
-        <button>Connect</button>
-      </div>
+      <Login />
     </div>
   );
 };
