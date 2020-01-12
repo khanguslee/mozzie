@@ -13,10 +13,12 @@
     "eslint-plugin-react": "^7.17.0",
     "husky": ">=1",
     "lint-staged": ">=8",
-    "prettier": "1.19.1"
+    "prettier": "1.19.1",
+    "typescript": "^3.7.4"
   },
   "scripts": {
-    "start": "electron src/main.js"
+    "start": "electron src/main.js",
+    "build": "tsc src/main.ts"
   },
   "husky": {
     "hooks": {
