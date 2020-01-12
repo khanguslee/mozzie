@@ -6,7 +6,11 @@ import './App.less';
 const App = () => {
   return (
     <div>
-      <p>mozzie</p>
+      <h1>mozzie</h1>
+      <div>
+        Host: <input type="text" />
+        <button>Connect</button>
+      </div>
     </div>
   );
 };

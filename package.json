@@ -49,7 +49,7 @@
       "sourceDirectory": "src/"
     },
     "renderer": {
-      "sourceDirectory": "src/components"
+      "sourceDirectory": "src/view"
     }
   }
 }
