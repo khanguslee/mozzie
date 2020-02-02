@@ -15,7 +15,10 @@ const App: FunctionComponent = () => {
         reconnectPeriod: 1000,
         connectTimeout: 5000,
       };
-      const client = connect(mqttConnectionOptions, mqttOptions);
+      const { host, port } = mqttConnectionOptions;
+      const mqttBrokerUrl = `mqtt://${host}:${port}`;
+      const client = connect(mqttBrokerUrl, mqttOptions);
+
       client.on('connect', (connack: any) => {
         setIsConnected(true);
         client.publish('test', 'message');
