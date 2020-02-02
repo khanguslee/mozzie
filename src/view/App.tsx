@@ -11,11 +11,13 @@ const App: FunctionComponent = () => {
   const [isConnected, setIsConnected] = useState(false);
   const loginHandler = (mqttConnectionOptions: MqttConnectionOptions) => {
     if (!isConnected) {
+      const { host, port, username, password } = mqttConnectionOptions;
       const mqttOptions = {
         reconnectPeriod: 1000,
         connectTimeout: 5000,
+        username,
+        password,
       };
-      const { host, port } = mqttConnectionOptions;
       const mqttBrokerUrl = `mqtt://${host}:${port}`;
       const client = connect(mqttBrokerUrl, mqttOptions);
 
