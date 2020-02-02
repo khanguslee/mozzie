@@ -12,10 +12,14 @@ type LoginFormProps = {
 export const LoginForm: FunctionComponent<LoginFormProps> = props => {
   const [host, setHost] = useState('');
   const [port, setPort] = useState('');
+  const [user, setUser] = useState('');
+  const [password, setPassword] = useState('');
 
   const mqttConnectionOptions = {
     host,
     port,
+    user,
+    password,
   };
 
   const onClickHandler = () => {
@@ -38,6 +42,17 @@ export const LoginForm: FunctionComponent<LoginFormProps> = props => {
       <div>
         Port:
         <input type="text" onChange={event => setPort(event.target.value)} />
+      </div>
+      <div>
+        Username:
+        <input type="text" onChange={event => setUser(event.target.value)} />
+      </div>
+      <div>
+        Password:
+        <input
+          type="password"
+          onChange={event => setPassword(event.target.value)}
+        />
       </div>
       <button onClick={onClickHandler}>Connect</button>
     </>
