@@ -3,6 +3,8 @@ import React, { FunctionComponent, useState } from 'react';
 export type MqttConnectionOptions = {
   host: string;
   port: string;
+  username: string;
+  password: string;
 };
 
 type LoginFormProps = {
@@ -12,13 +14,13 @@ type LoginFormProps = {
 export const LoginForm: FunctionComponent<LoginFormProps> = props => {
   const [host, setHost] = useState('');
   const [port, setPort] = useState('');
-  const [user, setUser] = useState('');
+  const [username, setUser] = useState('');
   const [password, setPassword] = useState('');
 
   const mqttConnectionOptions = {
     host,
     port,
-    user,
+    username,
     password,
   };
 
