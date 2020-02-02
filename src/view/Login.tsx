@@ -1,18 +1,17 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 
-interface LoginProps {
-  onSubmitHandler: (hostname: string) => void;
-}
+import { LoginForm, MqttConnectionOptions } from '../components/LoginForm';
+
+type LoginProps = {
+  onSubmitHandler: (mqttConnectionOptions: MqttConnectionOptions) => void;
+};
 
 const Login: FunctionComponent<LoginProps> = props => {
-  const [host, setHost] = useState('');
   return (
     <div>
       <h1>mozzie</h1>
       <div>
-        Host:
-        <input type="text" onChange={event => setHost(event.target.value)} />
-        <button onClick={() => props.onSubmitHandler(host)}>Connect</button>
+        <LoginForm onSubmitHandler={props.onSubmitHandler} />
       </div>
     </div>
   );

@@ -3,16 +3,26 @@ import * as ReactDOM from 'react-dom';
 import { connect } from 'mqtt';
 
 import Login from '../view/Login';
+import { MqttConnectionOptions } from '../components/LoginForm';
 
 import './App.less';
 
 const App: FunctionComponent = () => {
   const [isConnected, setIsConnected] = useState(false);
-  const loginHandler = (hostname: string) => {
+  const loginHandler = (mqttConnectionOptions: MqttConnectionOptions) => {
     if (!isConnected) {
-      const client = connect(hostname);
-      client.on('connect', function() {
+      const mqttOptions = {
+        reconnectPeriod: 1000,
+        connectTimeout: 5000,
+      };
+      const client = connect(mqttConnectionOptions, mqttOptions);
+      client.on('connect', (connack: any) => {
         setIsConnected(true);
+        client.publish('test', 'message');
+      });
+
+      client.on('error', error => {
+        console.log('error', error);
       });
     }
   };
